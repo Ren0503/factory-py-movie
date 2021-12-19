@@ -10,15 +10,25 @@ interface MovieProps {
 const MovieCard: FunctionComponent<MovieProps> = ({ movie }) => {
     return (
         <div>
-            <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                <img
-                    src={imageUrl(movie.image)}
-                    alt={movie.name}
-                    className="w-full h-full object-center object-cover group-hover:opacity-75"
-                />
+            <div className="mt-8">
+                <a href="{{ route('movies.show', $movie['id']) }}">
+                    <img src={imageUrl(movie.image)} alt={movie.name} className="hover:opacity-75 transition ease-in-out duration-150" />
+                </a>
+                <div className="mt-2">
+                    <a href={`/movie/${movie._id}`} className="text-lg mt-2 hover:text-gray-300">{movie.name}</a>
+                    <div className="flex items-center text-gray-400 text-sm mt-1">
+                        <svg className="fill-current text-orange-500 w-4" viewBox="0 0 24 24">
+                            <g data-name="Layer 2">
+                                <path d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1 1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0 01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z" data-name="star" />
+                            </g>
+                        </svg>
+                        <span className="ml-1">{movie.rating}</span>
+                        <span className="mx-2">|</span>
+                        <span>{movie.releasedAt}</span>
+                    </div>
+                    <div className="text-gray-400">{movie.genres}</div>
+                </div>
             </div>
-            <h3 className="mt-4 text-sm text-gray-700">{movie.name}</h3>
-            <p className="mt-1 text-lg font-medium text-gray-900">{movie.times}</p>
         </div>
     )
 }

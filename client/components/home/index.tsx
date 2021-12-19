@@ -34,12 +34,17 @@ const HomeComponent: FunctionComponent<HomeProps> = ({
                 <Message>{error}</Message>
             ) : (
                 <>
-                    <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                        {movies.map((movie) => (
-                            <div key={movie._id} className="group">
-                                <MovieCard movie={movie} />
+                    <div className="container mx-auto px-4 pt-16">
+                        <div className="popular-movies">
+                            <h2 className="uppercase tracking-wider text-orange-500 text-lg font-semibold">POPULAR MOVIES</h2>
+                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                                {movies.map((movie) => (
+                                    <div key={movie._id} className="group">
+                                        <MovieCard movie={movie} />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </>
             )}

@@ -53,6 +53,8 @@ def getTopMovies(request):
 def getMovie(request, pk):
     try:
         movie = Movie.objects.get(_id=pk)
+        movie.views += 1
+        movie.save()
         serializer = MovieDetailSerializer(movie, many=False)
         return Response(serializer.data)
     except Exception as e:
