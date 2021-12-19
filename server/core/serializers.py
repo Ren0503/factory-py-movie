@@ -57,6 +57,19 @@ class MovieSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ActorDetailSerialize(serializers.ModelSerializer):
+    movies = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = Actor
+        fields = '__all__'
+
+    def get_movies(self, obj):
+        movies = obj.movie_actor.all()
+        serializer = MovieSerializer(movies, many=True)
+        return serializer.data
+
+
 class MovieDetailSerializer(serializers.ModelSerializer):
     reviews = serializers.SerializerMethodField(read_only=True)
     actors = ActorSerializer(many=True, read_only=True)
