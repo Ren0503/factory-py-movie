@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <PersistGate persistor={persistor} loading={<div>Loading</div>}>
             <Header />
-            <main className="container py-3">
+            <main className="lg:container mx-auto py-3">
                 <Component {...pageProps} />
             </main>
             <Footer />

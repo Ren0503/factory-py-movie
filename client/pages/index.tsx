@@ -1,14 +1,9 @@
-import Link from 'next/link'
+import { FunctionComponent } from 'react'
 
-const IndexPage = () => (
-  <div>
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </div>
-)
+import HomeComponent from 'components/home'
 
-export default IndexPage
+const Home: FunctionComponent = () => {
+  return <HomeComponent />
+}
+
+export default Home
