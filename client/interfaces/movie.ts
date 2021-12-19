@@ -31,6 +31,10 @@ export interface MovieDetail extends Movie {
     reviews: Array<Review>
 }
 
+export interface ActorDetail extends Actor {
+    movies: Array<Movie>
+}
+
 export interface Review {
 	_id: string
 	user: string

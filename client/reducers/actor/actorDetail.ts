@@ -3,10 +3,10 @@ import {
     createSlice,
 } from '@reduxjs/toolkit'
 
-import { Actor } from 'interfaces'
+import { ActorDetail } from 'interfaces'
 import { baseUrl } from 'utils'
 
-export const detailActor = createAsyncThunk<Actor, string>(
+export const detailActor = createAsyncThunk<ActorDetail, string>(
     'ACTOR_DETAIL',
     async (actorId) => {
         const response = await fetch(`${baseUrl}/api/actors/${actorId}`)
@@ -14,13 +14,13 @@ export const detailActor = createAsyncThunk<Actor, string>(
         if (!response.ok) {
             throw new Error(data?.message ?? response.statusText)
         }
-        return data as Actor
+        return data as ActorDetail
     }
 )
 
 export type ActorDetailsState = {
     loading: boolean
-    actor?: Actor
+    actor?: ActorDetail
     error?: string
 }
 
