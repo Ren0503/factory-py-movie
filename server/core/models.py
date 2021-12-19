@@ -13,6 +13,8 @@ class Actor(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     birth = models.CharField(max_length=200, null=True, blank=True)
     sex = models.BooleanField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True,
+                              default='/placeholder.png')
     description = models.TextField(null=True, blank=True)
     createdAt = models.DateTimeField(auto_now_add=True)
 
@@ -30,7 +32,8 @@ class Movie(models.Model):
                               default='/placeholder.png')
     genres = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    actors = models.ManyToManyField(Actor, related_name='movie_actor', blank=True)
+    actors = models.ManyToManyField(
+        Actor, related_name='movie_actor', blank=True)
     releasedAt = models.DateField(null=True, blank=True)
     times = models.IntegerField(null=True, blank=True)
     url = models.CharField(max_length=200, null=True, blank=True)
