@@ -3,7 +3,7 @@ import { FaTwitter, FaFacebook, FaGithub } from 'react-icons/fa'
 
 const Footer: FunctionComponent = () => {
     return (
-        <div className="flex justify-between items-center h-12 mt-14 px-7 bg-dark-lighten">
+        <div className="flex justify-between items-center h-12 mt-14 px-7">
             <p className="hidden md:block">Copyright Ren0503 &copy 2021</p>
             <p className="block md:hidden">Ren0503 &copy</p>
             <div className="flex items-center gap-3">

@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 
 import { Movie as MovieType } from 'interfaces'
 import { imageUrl } from 'utils'
+import Link from 'next/link'
 
 interface MovieProps {
     movie: MovieType
@@ -11,9 +12,9 @@ const MovieCard: FunctionComponent<MovieProps> = ({ movie }) => {
     return (
         <div>
             <div className="mt-8">
-                <a href="{{ route('movies.show', $movie['id']) }}">
+                <Link href={`/movie/${movie._id}`}>
                     <img src={imageUrl(movie.image)} alt={movie.name} className="hover:opacity-75 transition ease-in-out duration-150" />
-                </a>
+                </Link>
                 <div className="mt-2">
                     <a href={`/movie/${movie._id}`} className="text-lg mt-2 hover:text-gray-300">{movie.name}</a>
                     <div className="flex items-center text-gray-400 text-sm mt-1">

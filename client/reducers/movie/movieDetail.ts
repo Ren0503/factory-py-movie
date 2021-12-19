@@ -9,7 +9,7 @@ import { baseUrl } from 'utils'
 export const detailMovie = createAsyncThunk<MovieDetail, string>(
     'MOVIE_DETAIL',
     async (movieId) => {
-        const response = await fetch(`${baseUrl}/api/movies/${movieId}/s`)
+        const response = await fetch(`${baseUrl}/api/movies/${movieId}/`)
         const data = await response.json()
         if (!response.ok) {
             throw new Error(data?.message ?? response.statusText)
