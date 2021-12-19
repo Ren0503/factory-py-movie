@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  @apply m-0 bg-dark text-gray-200 min-h-screen overflow-x-hidden;
+}
+
+.scrolled .navbar {
+  @apply !bg-dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --swiper-theme-color: #ff0000 !important;
+}
+
+#nprogress .bar {
+  background: #ff0000 !important;
+  height: 3px !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #ff0000, 0 0 5px #ff0000 !important;
+}
+
+.multiline-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mask-image {
+  mask-image: linear-gradient(rgba(0, 0, 0, 1), transparent);
+}
+
+.rounded-btn {
+  @apply bg-dark-lighten w-8 h-8 rounded-full text-center inline-flex justify-center items-center;
+}
