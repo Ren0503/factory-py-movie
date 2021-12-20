@@ -5,7 +5,7 @@ import { listMovies, MovieListState } from 'reducers/movie'
 import { ReduxState } from 'store'
 import { useAppDispatch } from 'hooks'
 
-import { Meta, Loader, Message } from 'components/shared'
+import { Meta, Loader, Message, Paginate } from 'components/shared'
 import { MovieCard } from 'components/movie'
 
 interface HomeProps {
@@ -44,6 +44,11 @@ const HomeComponent: FunctionComponent<HomeProps> = ({
                                 ))}
                             </div>
                         </div>
+                        <Paginate 
+                            pages={pages}
+                            page={page}
+                            keyword={keyword}
+                        />
                     </div>
                 </>
             )}
