@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { FaUser } from 'react-icons/fa'
+import { FaUser, FaSignOutAlt } from 'react-icons/fa'
 
 import { logout } from 'reducers/user'
 import { ReduxState } from 'store'
@@ -27,19 +27,49 @@ const Header: FunctionComponent = () => {
                         </Link>
                     </li>
                     <li className="md:ml-16 mt-3 md:mt-0">
-                        <a href="/movies" className="hover:text-gray-300">Movies</a>
+                        <Link href="/actor">
+                            <div className="hover:text-gray-300">
+                                Movie
+                            </div>
+                        </Link>
                     </li>
                     <li className="md:ml-6 mt-3 md:mt-0">
-                        <a href="/tv" className="hover:text-gray-300">TV Shows</a>
+                        <Link href="/actor">
+                            <div className="hover:text-gray-300">
+                                TV Show
+                            </div>
+                        </Link>
                     </li>
                     <li className="md:ml-6 mt-3 md:mt-0">
-                        <a href="/actors" className="hover:text-gray-300">Actors</a>
+                        <Link href="/actor">
+                            <div className="hover:text-gray-300">
+                                Actors
+                            </div>
+                        </Link>
                     </li>
                 </ul>
-                <div className="flex flex-col md:flex-row items-center">
-                    <div className="md:ml-4 mt-3 md:mt-0">
-                        <a href="/profile"> <FaUser size={25} /> </a>
-                    </div>
+                <div>
+                    {userInfo ? (
+                        <div className="flex flex-col md:flex-row items-center">
+                            <Link href="/profile">
+                                <div className="md:ml-4 mt-3 md:mt-0">
+                                    <FaUser size={25} />
+                                </div>
+                            </Link>
+                            <button onClick={logoutHandler}>
+                                <FaSignOutAlt />
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="flex flex-col md:flex-row items-center">
+                            <Link href="/login">
+                                <button className="md:ml-4 mt-3 md:mt-0">Login</button>
+                            </Link>
+                            <Link href="/register">
+                                <button>Register</button>
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </nav>

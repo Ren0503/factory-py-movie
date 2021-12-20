@@ -18,8 +18,6 @@ import { useAppDispatch } from 'hooks'
 import { imageUrl } from 'utils'
 
 const MovieScreen: FunctionComponent = () => {
-    const videoRef = useRef(null);
-
     const router = useRouter()
     const { id } = router.query
     const dispatch = useAppDispatch()
@@ -34,6 +32,7 @@ const MovieScreen: FunctionComponent = () => {
     const userLogin = useSelector((state: ReduxState) => state.userLogin as UserLoginState)
     const { userInfo } = userLogin
 
+    const [show, setShow] = useState(false)
     const [rating, setRating] = useState(0)
     const [comment, setComment] = useState('')
 
@@ -56,6 +55,10 @@ const MovieScreen: FunctionComponent = () => {
         },
         [dispatch, id, comment, rating]
     )
+
+    const handleShow = () => {
+        setShow(true)
+    }
 
     return (
         <div>
@@ -86,7 +89,8 @@ const MovieScreen: FunctionComponent = () => {
 
                                     <p>{movie.description}</p>
 
-                                    <button 
+                                    <button
+                                        onClick={handleShow}
                                         className="flex inline-flex items-center bg-orange-500 text-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150"
                                     >
                                         Watch Now
@@ -101,7 +105,7 @@ const MovieScreen: FunctionComponent = () => {
                                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                                     {movie.actors.map((actor) => (
                                         <div className='mt-8'>
-                                            <Link href={`/actors/${actor._id}`}>
+                                            <Link href={`/actor/${actor._id}`}>
                                                 <img
                                                     src={imageUrl(actor.image)} alt={actor.name}
                                                     className="hover:opacity-75 transition ease-in-out duration-150"
@@ -116,7 +120,16 @@ const MovieScreen: FunctionComponent = () => {
                             </div>
                         </div>
 
-
+                        {show && (
+                            <div>
+                                <iframe
+                                    src={movie.url}
+                                    title=""
+                                    frameBorder="0"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        )}
                     </div>
                 </>
             )}

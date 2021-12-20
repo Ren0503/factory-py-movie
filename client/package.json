@@ -20,8 +20,7 @@
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.4.1",
-    "video.js": "^7.17.0"
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@types/next-redux-wrapper": "^3.0.0",

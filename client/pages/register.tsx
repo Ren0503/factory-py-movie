@@ -47,7 +47,7 @@ const RegisterScreen: FunctionComponent<RegisterScreenProps> = () => {
     )
 
     return (
-        <div>
+        <div className='md:container mx-auto'>
             <h1>Sign In</h1>
             {error && <Message>{error}</Message>}
             {loading ? (
@@ -61,7 +61,7 @@ const RegisterScreen: FunctionComponent<RegisterScreenProps> = () => {
                             name="name"
                             type="text"
                             required
-                            className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-wite-900 rounded-t-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                            className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
@@ -74,7 +74,7 @@ const RegisterScreen: FunctionComponent<RegisterScreenProps> = () => {
                             type="email"
                             autoComplete='email'
                             required
-                            className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-wite-900 rounded-t-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                            className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -87,7 +87,7 @@ const RegisterScreen: FunctionComponent<RegisterScreenProps> = () => {
                             type="password"
                             autoComplete='current-password'
                             required
-                            className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-wite-900 rounded-t-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                            className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
@@ -99,7 +99,7 @@ const RegisterScreen: FunctionComponent<RegisterScreenProps> = () => {
                             name="confirm-password"
                             type="password"
                             required
-                            className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-wite-900 rounded-t-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+                            className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />

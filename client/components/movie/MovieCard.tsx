@@ -13,10 +13,14 @@ const MovieCard: FunctionComponent<MovieProps> = ({ movie }) => {
         <div>
             <div className="mt-8">
                 <Link href={`/movie/${movie._id}`}>
-                    <img src={imageUrl(movie.image)} alt={movie.name} className="hover:opacity-75 transition ease-in-out duration-150" />
+                    <img src={imageUrl(movie.image)} alt={movie.name} className="hover:opacity-75 rounded transition ease-in-out duration-150" />
                 </Link>
                 <div className="mt-2">
-                    <a href={`/movie/${movie._id}`} className="text-lg mt-2 hover:text-gray-300">{movie.name}</a>
+                    <Link href={`/movie/${movie._id}`}>
+                        <div className="text-lg mt-2 hover:text-gray-300">
+                            {movie.name}
+                        </div>
+                    </Link>
                     <div className="flex items-center text-gray-400 text-sm mt-1">
                         <svg className="fill-current text-orange-500 w-4" viewBox="0 0 24 24">
                             <g data-name="Layer 2">

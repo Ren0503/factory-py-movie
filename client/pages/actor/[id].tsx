@@ -56,9 +56,9 @@ const ActorScreen: FunctionComponent = () => {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
                                     {actor.movies.map((movie) => (
                                         <div className='mt-4'>
-                                            <a href={`movie/${movie._id}`}>
+                                            <Link href={`movie/${movie._id}`}>
                                                 <img src={imageUrl(movie.image)} alt="Poster" className="hover:opacity-75 transition ease-in-out duration-150" />
-                                            </a>
+                                            </Link>
                                             <h4 className="text-sm leading-normal block text-gra-400 hover:text-white mt-1">
                                                 {movie.name}
                                             </h4>

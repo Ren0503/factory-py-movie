@@ -1,5 +1,6 @@
 import 'styles/global.css'
-
+import Router from 'next/router'
+import NProgress from 'nprogress';
 import { AppProps } from 'next/app'
 import React from 'react'
 import { useStore } from 'react-redux'
@@ -8,6 +9,10 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 import { Header, Footer } from 'components/core'
 import { wrapper } from 'store'
+
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 function MyApp({ Component, pageProps }: AppProps) {
     const store = useStore()
