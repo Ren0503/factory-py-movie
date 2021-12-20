@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from core.models import Movie, Review
-from core.serializers import MovieSerializer, MovieDetailSerializer
+from core.serializers import MovieSerializer, MovieDetailSerializer, TVShowDetailSerializer
 
 from rest_framework import status
 
@@ -25,7 +25,7 @@ def getMovies(request):
         name__icontains=query).order_by('-createdAt')
 
     page = request.query_params.get('page')
-    paginator = Paginator(movies, 12)
+    paginator = Paginator(movies, 15)
 
     try:
         movies = paginator.page(page)
@@ -55,7 +55,11 @@ def getMovie(request, pk):
         movie = Movie.objects.get(_id=pk)
         movie.views += 1
         movie.save()
-        serializer = MovieDetailSerializer(movie, many=False)
+
+        if movie.isMovie == True:
+            serializer = MovieDetailSerializer(movie, many=False)
+        else:
+            serializer = TVShowDetailSerializer(movie, many=False)
         return Response(serializer.data)
     except Exception as e:
         return Response({'details': f"{e}"}, status=status.HTTP_204_NO_CONTENT)

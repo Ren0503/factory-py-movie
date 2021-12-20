@@ -38,7 +38,7 @@ const ActorScreen: FunctionComponent = () => {
                 <>
                     <div className="movie-info border-b border-gray-800">
                         <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row">
-                            <div className="">
+                            <div className="flex-none">
                                 <img src={imageUrl(actor.image)} alt="profile_image" className="w-76" />
                             </div>
                             <div className="md:ml-24">
@@ -56,8 +56,12 @@ const ActorScreen: FunctionComponent = () => {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
                                     {actor.movies.map((movie) => (
                                         <div className='mt-4'>
-                                            <Link href={`movie/${movie._id}`}>
-                                                <img src={imageUrl(movie.image)} alt="Poster" className="hover:opacity-75 transition ease-in-out duration-150" />
+                                            <Link href={`/movie/${movie._id}`}>
+                                                <img 
+                                                    src={imageUrl(movie.image)} alt="Poster" 
+                                                    className="hover:opacity-75 transition ease-in-out duration-150"
+                                                    height="80"
+                                                />
                                             </Link>
                                             <h4 className="text-sm leading-normal block text-gra-400 hover:text-white mt-1">
                                                 {movie.name}

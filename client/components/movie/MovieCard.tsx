@@ -13,7 +13,11 @@ const MovieCard: FunctionComponent<MovieProps> = ({ movie }) => {
         <div>
             <div className="mt-8">
                 <Link href={`/movie/${movie._id}`}>
-                    <img src={imageUrl(movie.image)} alt={movie.name} className="hover:opacity-75 rounded transition ease-in-out duration-150" />
+                    <img 
+                        src={imageUrl(movie.image)} alt={movie.name} 
+                        className="hover:opacity-75 rounded-lg transition ease-in-out duration-150" 
+                        height="80"
+                    />
                 </Link>
                 <div className="mt-2">
                     <Link href={`/movie/${movie._id}`}>

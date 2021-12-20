@@ -37,6 +37,7 @@ class Movie(models.Model):
     releasedAt = models.DateField(null=True, blank=True)
     times = models.IntegerField(null=True, blank=True)
     url = models.CharField(max_length=200, null=True, blank=True)
+    isMovie = models.BooleanField(default=True)
     rating = models.DecimalField(
         max_digits=7, decimal_places=2, null=True, blank=True)
     numReviews = models.IntegerField(null=True, blank=True, default=0)
@@ -59,3 +60,15 @@ class Review(models.Model):
 
     def __str__(self):
         return str(self.rating)
+
+
+class Episode(models.Model):
+    _id = models.UUIDField(default=uuid.uuid4,  unique=True,
+                           primary_key=True, editable=False)
+    movie = models.ForeignKey(Movie, on_delete=models.SET_NULL, null=True)
+    number = models.IntegerField(null=True, blank=True)
+    url = models.CharField(max_length=200, null=True, blank=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.number)

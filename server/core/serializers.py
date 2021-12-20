@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import Review, Movie, Actor
+from .models import Episode, Review, Movie, Actor
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -56,6 +56,11 @@ class MovieSerializer(serializers.ModelSerializer):
         model = Movie
         fields = '__all__'
 
+class EpisodeSerialize(serializers.ModelSerializer):
+    class Meta:
+        model = Episode
+        fields = '__all__'
+
 
 class ActorDetailSerialize(serializers.ModelSerializer):
     movies = serializers.SerializerMethodField(read_only=True)
@@ -81,4 +86,23 @@ class MovieDetailSerializer(serializers.ModelSerializer):
     def get_reviews(self, obj):
         reviews = obj.review_set.all()
         serializer = ReviewSerializer(reviews, many=True)
+        return serializer.data
+
+class TVShowDetailSerializer(serializers.ModelSerializer):
+    reviews = serializers.SerializerMethodField(read_only=True)
+    actors = ActorSerializer(many=True, read_only=True)
+    episodes = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = Movie
+        fields = '__all__'
+
+    def get_reviews(self, obj):
+        reviews = obj.review_set.all()
+        serializer = ReviewSerializer(reviews, many=True)
+        return serializer.data
+
+    def get_episodes(self, obj):
+        episodes = obj.episode_set.all()
+        serializer = EpisodeSerialize(episodes, many=True)
         return serializer.data

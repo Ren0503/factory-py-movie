@@ -6,6 +6,7 @@ import { logout } from 'reducers/user'
 import { ReduxState } from 'store'
 import { useAppDispatch } from 'hooks'
 import Link from 'next/link'
+import Search from './Search'
 
 const Header: FunctionComponent = () => {
     const userLogin = useSelector((state: ReduxState) => state.userLogin)
@@ -48,6 +49,7 @@ const Header: FunctionComponent = () => {
                         </Link>
                     </li>
                 </ul>
+                <Search />
                 <div>
                     {userInfo ? (
                         <div className="flex flex-col md:flex-row items-center">
@@ -63,10 +65,10 @@ const Header: FunctionComponent = () => {
                     ) : (
                         <div className="flex flex-col md:flex-row items-center">
                             <Link href="/login">
-                                <button className="md:ml-4 mt-3 md:mt-0">Login</button>
+                                <button>Login</button>
                             </Link>
                             <Link href="/register">
-                                <button>Register</button>
+                                <button className="md:ml-4 mt-3 md:mt-0">Register</button>
                             </Link>
                         </div>
                     )}

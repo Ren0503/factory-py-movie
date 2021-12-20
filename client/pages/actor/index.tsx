@@ -32,7 +32,11 @@ const ActorListScreen: FunctionComponent = () => {
                         {actors.map((actor) => (
                             <div className='actors mt-8'>
                                 <Link href={`/actor/${actor._id}`}>
-                                    <img src={imageUrl(actor.image)} alt={actor.name} className='hover:opacity-75 transition ease-in-out duration-150' />
+                                    <img 
+                                        src={imageUrl(actor.image)} alt={actor.name} 
+                                        className='hover:opacity-75 transition ease-in-out duration-150' 
+                                        height="80"
+                                    />
                                 </Link>
                                 <div className="mt-2">
                                     <p className="text-lg hover:text-gray-300">{actor.name}</p>
