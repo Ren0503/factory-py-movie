@@ -39,7 +39,7 @@ const ActorScreen: FunctionComponent = () => {
                     <div className="movie-info border-b border-gray-800">
                         <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row">
                             <div className="flex-none">
-                                <img src={imageUrl(actor.image)} alt="profile_image" className="w-76" />
+                                <img src={imageUrl(actor.image)} alt="profile_image" className="w-64 md:w-96" />
                             </div>
                             <div className="md:ml-24">
                                 <h2 className="text-4xl font-semibold">{actor.name}</h2>

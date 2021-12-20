@@ -6,7 +6,7 @@ interface PlayerProps {
 
 const Player: FunctionComponent<PlayerProps> = ({ url }) => {
     return (
-        <div className="relative h-0 w-full">
+        <div className="w-full">
             <iframe
                 src={url}
                 title=""

@@ -10,7 +10,7 @@ const Rating: FunctionComponent<RatingProps> = ({
     color = '#f8e825',
 }) => {
     return (
-        <div className="rating">
+        <div className="rating flex">
             {[...Array(5)].map((x, i) => {
                 const full = value >= i + 1
                 const half = value >= i + 0.5

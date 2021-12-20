@@ -27,7 +27,6 @@ const HomeComponent: FunctionComponent<HomeProps> = ({
     return (
         <>
             <Meta />
-            <h1>Trend Movies</h1>
             {loading ? (
                 <Loader />
             ) : error ? (
