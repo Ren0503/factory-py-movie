@@ -21,7 +21,7 @@ const Paginate: FunctionComponent<PaginateProps> = ({ pages, page, keyword }) =>
                         const link = keyword ? `/search/${keyword}/page/${x + 1}` : `/page/${x + 1}`
                         return (
                             <Link href={link} key={x + 1}>
-                                <div className={`w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in rounded-full text-white ${x + 1 === page && "bg-teal-600"}`}>{x + 1}</div>
+                                <div className={`w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in rounded-full text-white ${x + 1 === page && "bg-orange-600"}`}>{x + 1}</div>
                             </Link>
                         )
                     })}

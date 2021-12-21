@@ -6,7 +6,7 @@ import { ReduxState } from 'store'
 import { useAppDispatch } from 'hooks'
 
 import { Meta, Loader, Message, Paginate } from 'components/shared'
-import { MovieCard } from 'components/movie'
+import { MovieCard, TopMovie } from 'components/movie'
 
 interface HomeProps {
     keyword?: string
@@ -27,6 +27,9 @@ const HomeComponent: FunctionComponent<HomeProps> = ({
     return (
         <>
             <Meta />
+            {!keyword && (
+                <TopMovie />
+            )}
             {loading ? (
                 <Loader />
             ) : error ? (

@@ -16,7 +16,7 @@ import { UserLoginState } from 'reducers/user'
 import { ReduxState } from 'store'
 import { useAppDispatch } from 'hooks'
 import { imageUrl } from 'utils'
-import { FaUser } from 'react-icons/fa'
+import { FaUserCircle } from 'react-icons/fa'
 
 const MovieScreen: FunctionComponent = () => {
     const router = useRouter()
@@ -136,7 +136,7 @@ const MovieScreen: FunctionComponent = () => {
                                             <div className='flex inline-flex items-center'>
                                                 {movie.episodes.map((episode, index) => (
                                                     <button
-                                                        onClick={() => showMovie(movie.episodes[index].url)} 
+                                                        onClick={() => showMovie(movie.episodes[index].url)}
                                                         className='episode ml-2 bg-orange-500 text-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150'
                                                     >
                                                         {episode.number}
@@ -200,14 +200,16 @@ const MovieScreen: FunctionComponent = () => {
                             <div className='container mx-auto px-4 py-16'>
                                 <h2 className="text-4xl font-semibold">Reviews ({movie.numReviews})</h2>
                                 {movie.reviews.map((review) => (
-                                    <div className='inline-flex items-center mt-5 border-b border-gray-600'>
+                                    <div className='flex mt-5'>
                                         <div>
-                                            <FaUser size={16} />
+                                            <FaUserCircle size={20} />
                                         </div>
-                                        <div>
-                                            <span className='text-gray-600 font-bold'>{review.name}</span>
-                                            <Rating value={review.rating} />
-                                            <p>{review.createdAt.substring(0, 10)}</p>
+                                        <div className='ml-5'>
+                                            <div className='flex text-gray-600 font-bold'>
+                                                <span>{review.name} | </span>
+                                                <Rating value={review.rating} />
+                                                <p className='ml-1'>| {review.createdAt.substring(0, 10)}</p>
+                                            </div>
                                             <p className="mt-1">{review.comment}</p>
                                         </div>
                                     </div>

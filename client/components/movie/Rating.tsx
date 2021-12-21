@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { FaStar, FaStarHalf } from 'react-icons/fa'
+import { FaStar, FaStarHalfAlt } from 'react-icons/fa'
 interface RatingProps {
     value: number
     color?: string
@@ -24,7 +24,7 @@ const Rating: FunctionComponent<RatingProps> = ({
                         )}
                         {!full && half && (
                             <>
-                                <FaStarHalf color={color} size={20} />
+                                <FaStarHalfAlt color={color} size={20} />
                             </>
                         )}
 
