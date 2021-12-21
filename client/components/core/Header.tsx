@@ -54,8 +54,8 @@ const Header: FunctionComponent = () => {
                     {userInfo ? (
                         <div className="flex flex-col md:flex-row items-center">
                             <Link href="/profile">
-                                <div className="md:ml-4 mt-3 md:mt-0">
-                                    <FaUser size={25} />
+                                <div className="md:mr-4 mt-3 md:mt-0">
+                                    {userInfo.name}
                                 </div>
                             </Link>
                             <button onClick={logoutHandler}>
@@ -73,9 +73,11 @@ const Header: FunctionComponent = () => {
                         </div>
                     )}
                 </div>
+
             </div>
         </nav>
     )
 }
+
 
 export default Header

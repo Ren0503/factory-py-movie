@@ -45,7 +45,7 @@ const LoginScreen: FunctionComponent<LoginScreenProps> = () => {
                 ) : (
                     <form className='mt-8 space-y-6' onSubmit={submitHandler}>
                         <div>
-                            <label htmlFor='email-address' className='sr-only'>Email Address</label>
+                            <label htmlFor='email-address' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400'>Email Address</label>
                             <input
                                 id='email-address'
                                 name="email"
@@ -58,7 +58,7 @@ const LoginScreen: FunctionComponent<LoginScreenProps> = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor='password' className='sr-only'>Password</label>
+                            <label htmlFor='password' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400'>Password</label>
                             <input
                                 id='password'
                                 name="password"
