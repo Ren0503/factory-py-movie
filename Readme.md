@@ -1,6 +1,7 @@
-# Movie
+# Factory
+![factory](https://github.com/Ren0503/factory-py-movie/blob/master/server/static/screenshots/header.png)
 
-> Trang web xem phim trực tuyến miễn phí.
+> Factory là trang web xem phim trực tuyến miễn phí, được xây dựng bằng Django và Nextjs.
 - **server**: Chứa API cho trang web được tạo bằng Python, Django và SQLite (có thể chuyển thành PostgreSQL)
 - **client** trang giao diện, được tạo với Next, Redux Toolkit và TailwindCSS.
 
